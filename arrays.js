@@ -17,3 +17,14 @@ console.log(notas.length);
 notas.pop();
 
 console.log(notas.length);
+
+const arrayVazia=[,,];
+
+
+/*Arrays esparsos comtém espaços vazios */
+console.log(arrayVazia);
+console.log(arrayVazia.length);
+
+arrayVazia.push(8);
+console.log(arrayVazia);
+console.log(arrayVazia.length);
