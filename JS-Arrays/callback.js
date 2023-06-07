@@ -9,7 +9,7 @@ nomes.forEach((nome)=>{
 /*Chamando funções para utilizar o forEach */
 
 function imprimeNome(nome){
-    console.log(nome);
+    console.log(`${nome}`);
 }
 
 nomes.forEach(imprimeNome);
