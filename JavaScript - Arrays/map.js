@@ -10,7 +10,10 @@ const notasAtualizadas=notas.map((nota)=>{
 console.log(notasAtualizadas);
 
 
-/*Mesmo código, mas utilizando o forEach */
+/*Mesmo código, mas utilizando o forEach, a diferença entre
+os dois está no fato de o forEach não obrigatoriamente
+gerar um retorno, mas recebe uma função callback que 
+será executada para cada item do array */
 const notasAtualizadas2=[];
 notas.forEach(nota=>{
     notasAtualizadas2.push(nota+1>=10?10:nota+1);
