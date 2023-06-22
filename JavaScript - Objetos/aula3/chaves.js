@@ -15,10 +15,13 @@ pessoa.enderecos=[{
 }];
 
 
-/*Foi utilizado o let para obter cada chave do objeto */
-for (let chave in pessoa){
-    let tipo = typeof(pessoa[chave]);
-    if (tipo!== "function" && tipo!=="object"){
-        console.log(`A chave ${chave} tem o valor ${pessoa[chave]}`);
-    }
+/*Utilizado para obter todas as chaves do objeto pessoa */
+const chaves= Object.keys(pessoa);
+
+console.log(chaves);
+
+/*Os includes são utilizados para identificar se um 
+determinado campo existe em um objeto, ele sempre retorna um boleano */
+if(!chaves.includes("animal")){
+    console.log("O capo animal não foi encontrado!");
 }
