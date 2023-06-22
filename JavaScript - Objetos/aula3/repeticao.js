@@ -1,4 +1,3 @@
-
 /*Podemos utilizar um array dentro de um objeto */
 const pessoa={
     nome:   'Afrânio Viana',
@@ -16,20 +15,10 @@ pessoa.enderecos=[{
 }];
 
 
-/*Adicionando um objeto no final da lista */
-pessoa.enderecos.push({
-    rua: "R. algo",
-    numero: "431234123",
-    bairro: "O mesmo",
-    apartamento: true
-});
-
-
-/*Filtrando uma lista de objetos */
-const listaApartamentos=pessoa.enderecos.filter(
-    (enderecos)=>enderecos.apartamento===true
-);
-
-
-/*Exibindo a lista já filtrada */
-console.log(listaApartamentos[0].bairro);
+/*Foi utilizado o let para obter cada chave do objeto */
+for (let chave in pessoa){
+    let tipo = typeof(pessoa[chave]);
+    if (tipo!== "function" && tipo!="object"){
+        console.log(`A chave ${chave} tem o valor ${pessoa[chave]}`);
+    }
+}
