@@ -1,6 +1,36 @@
+import fs from 'fs';
 import chalk from "chalk";
+import { error } from 'console';
 
 
-console.log(chalk.blue('Olá mundo!'));
-console.log(chalk.green('São geralmente recuperados a partir de um objeto [FileList](https://developer.mozilla.org/pt-BR/docs/Web/API/FileList) que é retornado como resultado da seleção, pelo usuário, de arquivos através do elemento [<input>](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/Input), a partir do objeto [DataTransfer](https://developer.mozilla.org/pt-BR/docs/Web/API/DataTransfer) utilizado em operações de arrastar e soltar, ou a partir da API `mozGetAsFile()` em um [HTMLCanvasElement](https://developer.mozilla.org/pt-BR/docs/Web/API/HTMLCanvasElement).'));
-console.log(chalk.yellow('São geralmente recuperados a partir de um objeto [FileList](https://developer.mozilla.org/pt-BR/docs/Web/API/FileList) que é retornado como resultado da seleção, pelo usuário, de arquivos através do elemento [<input>](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/Input), a partir do objeto [DataTransfer](https://developer.mozilla.org/pt-BR/docs/Web/API/DataTransfer) utilizado em operações de arrastar e soltar, ou a partir da API `mozGetAsFile()` em um [HTMLCanvasElement](https://developer.mozilla.org/pt-BR/docs/Web/API/HTMLCanvasElement).'));
+function trataErro(erro){
+    console.log(erro);
+    throw new Error(chalk.red(erro.code,'Não há arquivo no diretório!'));
+}
+
+//async e await
+async function pegaArquivo(caminhoDoArquivo){
+    try{
+        const encoding='utf-8';
+        const texto=await fs.promises.readFile
+        (caminhoDoArquivo,encoding)
+        console.log(chalk.bgBlue.yellow.bold(texto));
+    }catch (erro){
+        trataErro(erro);
+    }
+}
+
+
+//promessas com then()
+
+// function pegaArquivo(caminhoDoArquivo){
+//     const encoding='utf-8';
+//     fs.promises
+//         .readFile(caminhoDoArquivo,encoding)
+//         .then((texto)=>console.log(chalk.bgBlue.yellow.bold(texto)))
+//         .catch(trataErro);
+// }
+
+
+pegaArquivo('./arquivos/texto.md');
+pegaArquivo('./arquivos/');
